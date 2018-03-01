@@ -20,11 +20,9 @@ class App extends Component {
     socket.on("update", ({ users }) => this.chatUpdate(users));
   }
 
-render() {
-        return this.state.name !== '' ? (
-            this.renderLayout()
-        ) : this.renderUserForm()
-    }
+  render() {
+    return this.state.name !== "" ? this.renderLayout() : this.renderUserForm();
+  }
 
   messageReceive(message) {
     const messages = [message, ...this.state.messages];
@@ -70,6 +68,6 @@ render() {
   renderUserForm() {
     return <UserForm onUserSubmit={name => this.handleUserSubmit(name)} />;
   }
-};
+}
 
 export default App;
